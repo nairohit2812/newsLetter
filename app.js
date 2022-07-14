@@ -65,13 +65,17 @@ app.post("/", function(req, res){
 
 });
 
+//further development to go to hopepage when error occurs
+
 app.post("/failure", function(req, res){
     res.redirect("/");
 });
 
+//code to redirect to failure page since failure.html won't be visible all the time.
 
-
-
+app.post("/success", function(req, res) {
+    res.sendFile(__dirname + "/failure.html");
+})
 
 
 app.listen(process.env.PORT || 3000, function () {
